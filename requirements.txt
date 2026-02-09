@@ -1,0 +1,10 @@
+the-new-hotness
+fastapi
+uvicorn
+streamlit
+openai
+python-dotenv
+sentence-transformers
+faiss-cpu
+pydantic
+requests

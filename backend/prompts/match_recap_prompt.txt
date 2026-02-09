@@ -1,0 +1,14 @@
+Write a professional match recap.
+
+Sport: {sport}
+Teams: {teams}
+Score: {score}
+Key Moments: {moments}
+Tone: {tone}
+
+Structure:
+1. Headline
+2. Opening summary
+3. Key turning points
+4. Player highlights
+5. Closing insight
