@@ -4,8 +4,11 @@ from services.llm_service import generate_content
 from services.vector_service import search
 from utils.formatter import clean_output, format_as_markdown
 from pathlib import Path
+from services.vector_service import load_documents
 
 app = FastAPI()
+def startup_event():
+    load_documents()
 
 BASE_DIR = Path(__file__).resolve().parent
 PROMPT_PATH = BASE_DIR / "prompts" / "match_recap_prompt.txt"
@@ -23,7 +26,7 @@ def generate_match_recap(request: MatchRequest):
     with open(PROMPT_PATH, "r", encoding="utf-8") as f:
         template = f.read()
 
-    retrieved_docs = search(request.moments)
+    retrieved_docs = search(request.moments, sport_filter=request.sport)
 
     prompt = template.format(
         sport=request.sport,
