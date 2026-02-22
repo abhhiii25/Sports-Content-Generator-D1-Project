@@ -1,8 +1,7 @@
 from openai import OpenAI
 from config import OPENAI_API_KEY
 
-client = OpenAI(api_key="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")
-
+client = OpenAI(api_key=OPENAI_API_KEY)
 def generate_content(prompt: str):
     try:
         print("API KEY LOADED:", OPENAI_API_KEY)

@@ -9,10 +9,10 @@ st.markdown("Generate professional match recaps instantly.")
 col1, col2 = st.columns(2)
 
 with col1:
-    sport = st.selectbox("Select Sport", ["Cricket", "Football", "Basketball"])
+    sport = st.selectbox("Select Sport", ["Select","Cricket", "Football", "Basketball"])
     teams = st.text_input("Teams (e.g., India vs Australia)")
     score = st.text_input("Final Score")
-    tone = st.selectbox("Tone", ["Professional", "Analytical", "Casual"])
+    tone = st.selectbox("Tone", ["Select","Professional", "Analytical", "Casual"])
 
 with col2:
     moments = st.text_area("Key Match Moments", height=200)
