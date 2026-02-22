@@ -1,5 +1,5 @@
 from openai import OpenAI
-from config import OPENAI_API_KEY
+from backend.config import OPENAI_API_KEY
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 def generate_content(prompt: str):

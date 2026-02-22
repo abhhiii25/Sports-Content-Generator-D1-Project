@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from services.llm_service import generate_content
-from services.vector_service import search
-from utils.formatter import clean_output, format_as_markdown
+from backend.services.llm_service import generate_content
+from backend.services.vector_service import search
+from backend.utils.formatter import clean_output, format_as_markdown
 from pathlib import Path
 from services.vector_service import load_documents
 
