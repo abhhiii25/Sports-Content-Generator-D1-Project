@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 from pathlib import Path
 
 # Load embedding model once
-model = SentenceTransformer("all-MiniLM-L6-v2")
+#model = SentenceTransformer("all-MiniLM-L6-v2")
 
 dimension = 384
 index = faiss.IndexFlatL2(dimension)
@@ -45,20 +45,20 @@ def add_document(text, sport, teams):
 
 
 def search(query, sport_filter=None, k=3):
-    embedding = get_embedding(query)
-    D, I = index.search(np.array([embedding]).astype("float32"), k)
+  #  embedding = get_embedding(query)
+   # D, I = index.search(np.array([embedding]).astype("float32"), k)
 
-    results = []
+#    results = []
 
-    for idx in I[0]:
-        if idx == -1:
-            continue
+ #   for idx in I[0]:
+  #      if idx == -1:
+   #         continue
 
-        if idx < len(documents):
-            if sport_filter:
-                if metadata[idx]["sport"].lower() == sport_filter.lower():
-                    results.append(documents[idx])
-            else:
-                results.append(documents[idx])
+    #    if idx < len(documents):
+     #       if sport_filter:
+      #          if metadata[idx]["sport"].lower() == sport_filter.lower():
+       #             results.append(documents[idx])
+        #    else:
+         #       results.append(documents[idx])
 
-    return results
+    return []# results
