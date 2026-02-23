@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 from pathlib import Path
 
 # Load embedding model once
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = None
 
 dimension = 384
 index = faiss.IndexFlatL2(dimension)
@@ -15,9 +15,16 @@ metadata = []
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_PATH = BASE_DIR / "data" / "sample_match_reports.txt"
 
+def get_model():
+    global model
+    if model is None:
+        print("Loading embedding model...")
+        model = SentenceTransformer("all-MiniLM-L6-v2")
+    return model
 
 def get_embedding(text: str):
-    return model.encode([text])[0]
+    model_instance = get_model()
+    return model_instance.encode([text])[0]
 
 
 def load_documents():
